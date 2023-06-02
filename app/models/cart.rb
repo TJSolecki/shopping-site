@@ -3,16 +3,23 @@ class Cart < ApplicationRecord
 
   #self is current cart
   def add_item(product_id)
-    current_item = self.lineitems.find_by(product_id: product_id, cart_id: @cart.id)
-    if current_item
+    puts "ADDING PRODUCT WITH ID #{product_id}"
+    puts "TO CART WITH ID WITH ID #{self.id}"
+
+    current_item = self.lineitems.find_by(product_id: product_id)
+    puts "the current_item is #{current_item}"
+    if current_item != nil
       current_item.quantity += 1
     else
-      currernt_item = self.lineitems.build(product_id: product_id, cart_id: @cart.id)
+      puts "THE CURRENT ITEM IS NIL, BUILDING..."
+      Lineitem.create(cart_id: self.id, product_id: product_id)
+      current_item = self.lineitems.find_by(product_id: product_id)
+      p current_item
     end
-    current_item
+    return current_item
   end
 
   def total_price
-    self.lineitems.to_a.sum {|item| item.price}
+    self.lineitems.to_a.sum {|item| item.product.price * item.quantity}
   end
 end

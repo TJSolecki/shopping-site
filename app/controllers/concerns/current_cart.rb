@@ -5,8 +5,10 @@ module CurrentCart
   def set_cart
     @cart = Cart.find(session[:cart_id])
   rescue ActiveRecord::RecordNotFound
+    puts "creating cart..."
     @cart = Cart.create()
     session[:cart_id] = @cart.id
+    puts "the cart id is now #{@cart.id}"
   end
 
 end

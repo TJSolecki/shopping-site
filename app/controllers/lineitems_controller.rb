@@ -29,9 +29,9 @@ class LineitemsController < ApplicationController
 
     # this will insert one row in the lineitems table
     # the other way is also ok but we will do this instead
-    # @lineitem = @cart.lineitems.build(product_id: params[:product_id])
+    @lineitem = @cart.lineitems.build(product_id: params[:product_id])
     puts " hey the product id passed to the Lineitems controller was #{params[:product_id]} "
-    @lineitem = @cart.add_item(params[:product_id].to_i)
+    @lineitem = @cart.add_item(params[:product_id])
     p @lineitem
 
     respond_to do |format|
