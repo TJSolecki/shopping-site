@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h3>Items in your shopping cart</h3>
+
+<ul>
+  <% @cart.lineitems.each do |item| %>
+    <li><%= item.quantity %> | <%= item.product.name %> | $<%= item.product.price %></li>
+  <% end %>
+</ul>
+
+Total Price: <%= @cart.total_price %>
+
+<%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}%>
+<%= render @cart %>

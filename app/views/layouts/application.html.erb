@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Programmer's Paradise</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag asset_path('jdh.png') %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="<%= controller.controller_name %>">
+    <div class = 'banner'>
+      <%= image_tag "jdh.png" %>
+      <h1>Programmer's Paradise</h1></div>
+    <div class = 'columns'>
+      <div id="side">
+        <h3>Shopping Cart</h3>
+        <div id="cart">
+          <%# looking for _cart.html.erb  under views/carts %>
+          <% render(@cart) %>
+        </div>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

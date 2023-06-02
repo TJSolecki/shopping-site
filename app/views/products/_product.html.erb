@@ -1,0 +1,26 @@
+<div class="card <%= cycle('list_line_even', 'list_line_odd') %>" id="<%= dom_id product %>">
+  <p>
+    <strong>Name:</strong>
+    <%= product.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= product.description %>
+  </p>
+
+  <p>
+    <strong>Image:</strong>
+    <%= product.image %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= product.price %>
+  </p>
+
+  <p>
+    <%= link_to "Show this product", product %>
+  </p>
+
+</div>

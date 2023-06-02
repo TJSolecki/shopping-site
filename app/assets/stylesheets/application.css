@@ -1,0 +1,162 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --highlightColor: #ff9900;
+  --secondaryColor: #232f3e;
+  --primaryColor: #131921;
+
+  /* color-scheme: light dark; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+.banner img {
+  margin: 1%;
+  width: 3rem;
+  object-fit: contain;
+}
+.card-info a {
+  color:black;
+  text-decoration: none;
+  max-width: fit-content;
+}
+.card-info a:hover {
+  text-decoration: underline;
+}
+.products .card {
+  flex-direction:column;
+  height: fit-content;
+}
+
+.card {
+  display:flex;
+  flex-direction:row;
+  border-bottom: solid #ccc 2px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  height: 250px;
+  position: relative;
+  /* margin-bottom: 2rem; */
+}
+
+.card img {
+  object-fit: contain;
+  width:200px;
+}
+
+.card-info {
+  position: relative;
+  padding-left: 1rem;
+  text-overflow: ellipsis;
+  overflow: clip;
+}
+
+.card button {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--highlightColor);
+  border:none;
+  outline:none;
+}
+
+.card button:hover{
+  cursor: pointer;
+  background-color: #ffaa00;
+}
+.list_line_even {
+  background-color: #eee;
+}
+
+.list_line_odd {
+  background-color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin:0;
+  padding:0;
+}
+
+.banner {
+  z-index: 1;
+  position: fixed;
+  background-color: var(--primaryColor);
+  box-shadow: 0 0 0.8rem 0 rgba(0, 0, 0, 0.2);
+  top:0;
+  left:0;
+  right:0;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.banner h1 {
+  padding-left:1%;
+  color: white;
+}
+
+.columns {
+  padding:1rem;
+  padding-left: 0;
+  padding-bottom: 0;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify content: flex-start;
+}
+
+#main {
+  padding:1rem;
+  margin-left: 15rem;
+}
+
+.products #side {
+  display:none;
+}
+
+.products #main {
+  padding: 1rem;
+  margin:1rem;
+}
+
+.shopper #side {
+  color:white;
+  z-index: 1;
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:15rem;
+  top:5rem;
+  bottom:0;
+  left:0;
+  background-color: var(--secondaryColor);
+}

@@ -1,0 +1,11 @@
+<% @products.each do |product| %>
+  <div class="card">
+    <%= image_tag(product.image) %>
+    <div class="card-info">
+      <a href=""><h3><%= product.name %></h2></a>
+      <p>$<%= "%.2f" % product.price.round(2) %></p>
+      <p><%= product.description %></p>
+    </div>
+      <%= button_to('Add To Cart', lineitems_path(product_id: product.id), class: 'add_to_card', remote: true) %>
+  </div>
+<%end%>
