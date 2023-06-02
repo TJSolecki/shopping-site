@@ -138,11 +138,11 @@ body {
   margin-left: 15rem;
 }
 
-.products #side {
+.products #side, .lineitems #side, .carts #side {
   display:none;
 }
 
-.products #main {
+.products #main , .lineitems #main, .carts #main{
   padding: 1rem;
   margin:1rem;
 }
