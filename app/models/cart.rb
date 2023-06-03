@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   has_many :lineitems, dependent: :destroy
+  has_many :products, through: :lineitems
 
   #self is current cart
   def add_item(product_id)

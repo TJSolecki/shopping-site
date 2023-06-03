@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   validates :image, allow_blank: true, format: { with: %r{.*\.(jpg|png|gif)\Z}, message: "Must be a .jpg, .png, or .gif file" }
 
   has_many :lineitems, dependent: :destroy
+  has_many :carts, through: :lineitems
 end
