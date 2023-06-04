@@ -1,13 +1,15 @@
 <div id="<%= dom_id cart %>">
-<p style="color: green"><%= notice %></p>
+  <p style="color: green"><%= notice %></p>
 
-<ul>
-  <% @cart.lineitems.each do |item| %>
-    <li><%= item.quantity %> | <%= item.product.name %> | $<%= item.product.price %></li>
-  <% end %>
-</ul>
+  <% if @cart %>
+    <ul>
+      <% @cart.lineitems.each do |item| %>
+        <li><%= item.quantity %> | <%= item.product.name %> | $<%= item.product.price %></li>
+      <% end %>
+    </ul>
+    Total Price: <%= @cart.total_price %>
 
-Total Price: <%= @cart.total_price %>
+  <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}%>
+<% end %>
 
-<%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}%>
 </div>
