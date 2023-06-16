@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_020817) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_16_035741) do
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -47,11 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_020817) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "password"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "lineitems", "carts"

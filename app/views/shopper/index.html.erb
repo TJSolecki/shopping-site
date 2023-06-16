@@ -10,8 +10,6 @@
       <p>$<%= "%.2f" % product.price.round(2) %></p>
       <p><%= product.description %></p>
     </div>
-    <%= javascript_include_tag 'cart.js' %>
-    <button onClick="sendReq()">Add To Cart</button>
-    <%# <%= button_to('Add To Cart', lineitems_path(product_id: product.id), method: :post, class: 'add_to_cart', remote: true) %1> %>
+    <%= button_to('Add To Cart', lineitems_path(product_id: product.id), method: :post, class: 'add_to_cart', remote: true) %>
   </div>
 <%end%>

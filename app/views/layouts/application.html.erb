@@ -14,12 +14,19 @@
 
   <body class="<%= controller.controller_name %>">
     <div class = 'banner'>
-      <%= image_tag "jdh.png" %>
-      <h1>Programmer's Paradise</h1>
-    <div class="auth-wrapper">
-      <a href="/access/new"><button>Login</button></a>
-      <a href="/access/destroy"><button>Logout</button></a>
-    </div>
+      <a href="/">
+        <%= image_tag "jdh.png" %>
+      </a>
+      <div class="auth-wrapper">
+        <% if session[:user_id] %>
+          <a href="/orders"><button>Orders</button></a>
+          <a href="/products"><button>Products</button></a>
+          <a href="/carts"><button>Carts</button></a>
+          <a href="/admin/order_num"><button>Admin</button></a>
+        <% end %>
+        <a href="/access/new"><button>Login</button></a>
+        <a href="/access/destroy"><button>Logout</button></a>
+      </div>
     </div>
     <div class = 'columns'>
       <div id="side">

@@ -10,7 +10,11 @@ class ShopperController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    begin
+      @product = Product.find(params[:id])
+    rescue StandardError => _
+      redirect_to shopper_url
+    end
   end
 
 end

@@ -9,7 +9,7 @@ class AccessController < ApplicationController
 
   def create
     puts "username = #{params[:username]}"
-    user = User.find_by(name: params[:username])
+    user = User.find_by(username: params[:username])
     p user
     p User.all
 
