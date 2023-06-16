@@ -1,0 +1,19 @@
+<h1>Login</h1>
+  <p style="color: green"><%= notice %></p>
+  <p style="color: red"><%= alert %></p>
+
+<%= form_with(url: access_create_url, method: :post) do |form| %>
+  <div>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit 'Login' %>
+  </div>
+<% end %>

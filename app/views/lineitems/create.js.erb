@@ -1,2 +1,2 @@
 // this file needs to find card div and set the content to the new cart content
-document.getElementById("card").innerHTML = "<%= escape_javascript(render(@cart)) %>"
+$("<%= escape_javascript(render @cart) %>").appendTo("#cart");

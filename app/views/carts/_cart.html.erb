@@ -1,15 +1,26 @@
-<div id="<%= dom_id cart %>">
-  <p style="color: green"><%= notice %></p>
+<% if @cart %>
+  <div class="cart" id="<%= dom_id @cart %>">
+    <p style="color: green"><%= notice %></p>
+    <table>
+      <tr>
+        <td>#</td>
+        <td>Item</td>
+        <td>Price</td>
+      </tr>
+        <% @cart.lineitems.each do |item| %>
+          <tr>
+            <td><%= item.quantity %></td>
+            <td><%= item.product.name.length > 7 ? item.product.name[0..7] : item.product.name %>... </td>
+            <td>$<%= item.product.price %></td>
+          </tr>
+        <% end %>
+      </table>
+      <p>Total Price: $<%= "%.2f" % @cart.total_price.round(2) %></p>
+    <div style="display:flex; justify-content: center;">
+    <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}%>
+    <%= button_to 'Check Out', new_order_path, method: :get %>
+    </div>
 
-  <% if @cart %>
-    <ul>
-      <% @cart.lineitems.each do |item| %>
-        <li><%= item.quantity %> | <%= item.product.name %> | $<%= item.product.price %></li>
-      <% end %>
-    </ul>
-    Total Price: <%= @cart.total_price %>
 
-  <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'}%>
+  </div>
 <% end %>
-
-</div>

@@ -1,11 +1,17 @@
+<%= form_tag '/', method: :get do %>
+  <input type="text" name="search" />
+  <input type="submit" value="Search" />
+<% end %>
 <% @products.each do |product| %>
   <div class="card">
     <%= image_tag(product.image) %>
     <div class="card-info">
-      <a href=""><h3><%= product.name %></h2></a>
+      <a href="/<%= product.id %>"><h3><%= product.name %></h2></a>
       <p>$<%= "%.2f" % product.price.round(2) %></p>
       <p><%= product.description %></p>
     </div>
-      <%= button_to('Add To Cart', lineitems_path(product_id: product.id), class: 'add_to_card', remote: true) %>
+    <%= javascript_include_tag 'cart.js' %>
+    <button onClick="sendReq()">Add To Cart</button>
+    <%# <%= button_to('Add To Cart', lineitems_path(product_id: product.id), method: :post, class: 'add_to_cart', remote: true) %1> %>
   </div>
 <%end%>

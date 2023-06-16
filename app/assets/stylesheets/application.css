@@ -33,6 +33,30 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.auth-wrapper {
+  margin-left: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items:space-between
+}
+table {
+  border: 1px solid white;
+}
+tr {
+  outline: solid;
+}
+td {
+  padding: 0.3rem;
+  outline: solid;
+}
+
+.cart {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .banner img {
   margin: 1%;
   width: 3rem;
@@ -62,7 +86,7 @@
   /* margin-bottom: 2rem; */
 }
 
-.card img {
+#main img {
   object-fit: contain;
   width:200px;
 }
@@ -78,6 +102,11 @@
   position: absolute;
   right: 0.5rem;
   bottom: 0.5rem;
+  margin: 0;
+}
+
+button {
+  margin:0.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: var(--highlightColor);
@@ -85,7 +114,7 @@
   outline:none;
 }
 
-.card button:hover{
+button:hover{
   cursor: pointer;
   background-color: #ffaa00;
 }
@@ -138,11 +167,11 @@ body {
   margin-left: 15rem;
 }
 
-.products #side, .lineitems #side, .carts #side {
+.access #side, .products #side, .lineitems #side, .carts #side, .orders #side {
   display:none;
 }
 
-.products #main , .lineitems #main, .carts #main{
+.access #main, .products #main , .lineitems #main, .carts #main, .orders #main{
   padding: 1rem;
   margin:1rem;
 }

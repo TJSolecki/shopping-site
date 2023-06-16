@@ -25,22 +25,16 @@ class LineitemsController < ApplicationController
 
   # POST /lineitems or /lineitems.json
   def create
-    # @lineitem = Lineitem.new(lineitem_params)
-
-    # this will insert one row in the lineitems table
-    # the other way is also ok but we will do this instead
-
-    @lineitem = @cart.lineitems.build(product_id: params[:product_id])
-    puts " hey the product id passed to the Lineitems controller was #{params[:product_id]} "
     @lineitem = @cart.add_item(params[:product_id])
-    p @lineitem
 
     respond_to do |format|
       if @lineitem.save
-        format.html { redirect_to shopper_url, notice: "Lineitem was successfully created." }
-        format.js # by default, will render create.js.erb under views/lineitems
+        format.html { render @cart }
+        format.js {}
+        puts "bang"
         format.json { render :show, status: :created, location: @lineitem }
       else
+        puts "hill"
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @lineitem.errors, status: :unprocessable_entity }
       end
@@ -49,9 +43,10 @@ class LineitemsController < ApplicationController
 
   # PATCH/PUT /lineitems/1 or /lineitems/1.json
   def update
+    puts "bang"
     respond_to do |format|
       if @lineitem.update(lineitem_params)
-        format.html { redirect_to shopper_url, notice: "Lineitem was successfully updated." }
+        format.html { redirect_to cart_url(@cart), notice: "Lineitem was successfully updated." }
         format.js # by default, will render create.js.erb under views/lineitems
         format.json { render :show, status: :ok, location: @lineitem }
       else

@@ -1,0 +1,6 @@
+<a href='/'><button>Back to home</button></a>
+<h1><%= @product.name %></h1>
+<%= image_tag(@product.image) %>
+<p>$<%= "%.2f" % @product.price.round(2) %></p>
+<p><%= @product.description %></p>
+<%= button_to('Add To Cart', lineitems_path(product_id: @product.id), method: :post, class: 'add_to_cart', remote: true) %>

@@ -9,18 +9,26 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body class="<%= controller.controller_name %>">
     <div class = 'banner'>
       <%= image_tag "jdh.png" %>
-      <h1>Programmer's Paradise</h1></div>
+      <h1>Programmer's Paradise</h1>
+    <div class="auth-wrapper">
+      <a href="/access/new"><button>Login</button></a>
+      <a href="/access/destroy"><button>Logout</button></a>
+    </div>
+    </div>
     <div class = 'columns'>
       <div id="side">
         <h3>Shopping Cart</h3>
         <div id="cart">
           <%# looking for _cart.html.erb  under views/carts %>
-          <%= render(@cart) %>
+          <% if @cart %>
+            <%= render(@cart) %>
+          <% end %>
         </div>
       </div>
       <div id="main">

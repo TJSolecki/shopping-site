@@ -1,10 +1,3 @@
-import { Application } from "@hotwired/stimulus"
-
-const application = Application.start()
-
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
 const request = new XMLHttpRequest();
 const sendReq = () => {
   console.log('bang i sent');
@@ -20,5 +13,3 @@ request.onload = () => {
   const cart = document.querySelector('#cart');
   cart.innerHtml = data;
 }
-
-export { application }
